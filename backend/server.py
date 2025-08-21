@@ -515,7 +515,9 @@ logger = logging.getLogger(__name__)
 @app.on_event("startup")
 async def startup_event():
     """Initialize Telegram bot on startup"""
-    await init_telegram_app()
+    global telegram_app
+    telegram_app = await init_telegram_app()
+    await telegram_app.initialize()
     logger.info("Telegram bot initialized")
 
 @app.on_event("shutdown")
