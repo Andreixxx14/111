@@ -169,6 +169,8 @@ class TelegramBotTester:
                 print(f"   Testing: {description}")
                 callback_update = self.create_callback_update(callback_data)
                 callback_update["callback_query"]["from"]["username"] = "andrisxxx"
+                callback_update["callback_query"]["from"]["id"] = 987654321
+                callback_update["callback_query"]["chat_instance"] = "987654321"
                 self.send_webhook_update(callback_update)
                 time.sleep(0.3)
         else:
