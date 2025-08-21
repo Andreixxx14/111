@@ -80,6 +80,7 @@ class TelegramBotTester:
                     "date": int(time.time()) - 1,
                     "text": "Test message"
                 },
+                "chat_instance": str(self.chat_id),
                 "data": callback_data
             }
         }
