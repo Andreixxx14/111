@@ -445,6 +445,9 @@ async def telegram_webhook(request: Request):
         update = Update.de_json(update_data, bot)
         
         if telegram_app:
+            # Ensure the application is initialized
+            if not telegram_app.running:
+                await telegram_app.initialize()
             await telegram_app.process_update(update)
         
         return {"status": "ok"}
